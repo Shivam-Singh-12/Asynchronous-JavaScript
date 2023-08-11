@@ -17,13 +17,17 @@
 // );
 
 const pf1 = new Promise((resolve, reject)=>{
-    let ok = resolve("here is your data");
+    // let ok = 
+    resolve("here is your data");
     // el.innerHTML = el.innerHTML.ok
     // console.log(ok);
-    // pf1.then(data =>{
-    //     console.log(data);
-    // })
+    
 });
+pf1.then(data =>{
+    console.log(data);
+})
+
+
 
 const pf2 = Promise.resolve("pf2 Done");
 // pf2.then(data=>{
@@ -42,13 +46,13 @@ const pf4 = new Promise((resolve, reject) =>{
 })
 // 
 Promise
-.all([pf2, pf3, pf4])
+.all([pf1, pf2, pf3, pf4])
 // .any([pf2, pf3, pf4])
 // .race([pf3, pf2, pf4])
 .then(data=>{console.log(data)})
 .catch(err=>{console.log(err)})
 
-// NOTE
+// NOTE :
 // Data and functions
 // properties and methodes
 // variables or module
@@ -68,6 +72,17 @@ Promise
 // ex : mouse click in system if system is on we can continue doing working infinite untill it is off
 
 // Promise : it will wait for the all data and result or error(Promise) - always get a result
+
+
+
+// next(),complete(),error(), interval()
+// of(), pipe(), map()
+
+
+// Way to handle asynchronus function :
+// callback function
+// using Promise object
+// Observable 
 
 
 

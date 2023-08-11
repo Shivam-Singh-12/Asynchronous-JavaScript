@@ -26,8 +26,8 @@ async function postData() {
 
 async function getData() {
     try {
-        const postData = await fetch(employees)
-        const finalData = await postData.json();
+        const getData = await fetch(employees)
+        const finalData = await getData.json();
         console.log(finalData);
         // el.innerHTML = el.innerHTML + "<br> Hello fetch works with async and await"
         el.innerHTML = JSON.stringify(finalData);

@@ -1,32 +1,12 @@
- 
-import {Observable} from 'rxjs'; // destructuring
-const observable = new Observable((s)=>{
-    setTimeout(()=> s.next("Hello"),1000)
-    setTimeout(()=> s.next("Observer"),3000)
-    setTimeout(()=> s.next("Learning"),2000)
-    setTimeout(()=> s.complete(),4000)
-    // s.next("Hello");
-    // s.next("Observer");
-    // // s.error("oops!")
-    // s.next("Learning");
-    // s.complete();
-    // s.next("One More");
-    // // console.log(JSON.stringify(observable));
+import async, {log} from 'async'
+
+async.parallel([
+    (cb) => {setTimeout(() => { console.log('A'); cb(null, "A is done"); }, 1000) },
+    (cb) => {setTimeout(() => { console.log('B'); cb(null, "B is done"); }, 3000) },
+    (cb) => {setTimeout(() => {
+        console.log('C');
+        cb(null, "C is done");
+    }, 2000) },
+], (err, res) => {
+    console.log(res);
 });
-const observer = {
-    next : (data) =>{
-        console.log(data);
-    },
-    complete : () =>{
-        console.log("complete done");
-    },
-    error : err =>{
-        console.log(err);
-    }
-}
-observable.subscribe(observer);
-// observable.subscribe({
-//     // next(data){
-//     //     console.log(data);
-//     // }
-// });
